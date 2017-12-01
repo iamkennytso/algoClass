@@ -52,7 +52,7 @@
 //   let i = arr.length-1
 //   const recurs = (i) => {
 //     if (i === -1) return
-//     array.push(arr[i]*num)
+//     array.push(arr[i])
 //     recurs(--i)
 //   }
 //   recurs(i)
