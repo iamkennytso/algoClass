@@ -79,6 +79,49 @@ Queue.prototype.count = function() {
 *** Exercises:
 
 1. Implement a queue using two stacks.
+var Stack = function() {
+  var storage = [];
+
+  
+  this.push = function(x){
+    storage.push(x)
+  };
+
+  this.pop = function(){
+    return storage.pop()
+  };
+
+  this.size = function(){
+    return storage.length
+  };
+  
+};
+
+var Queue = function() {
+
+  var stack = new Stack();
+  var hold = new Stack();
+
+  this.enqueue = function(x){
+    stack.push(x)
+  };
+
+  this.dequeue = function(){
+    while(stack.size !== 1){
+      hold.push(stack.pop())
+    }
+    let ans = stack.pop()
+    while(hold.size !== 0){
+      stack.push(stack.pop())
+    }
+    return ans;
+  };
+
+  this.size = function(){
+    return stack.size()
+  };
+};
+
 
 2. Implement a double-ended queue, with the following methods: enqueueLeft, dequeueLeft, enqueueRight, dequeueRight.
 
